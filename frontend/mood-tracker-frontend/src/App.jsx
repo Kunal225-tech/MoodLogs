@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import { Toaster } from 'react-hot-toast'
+import { Analytics } from '@vercel/analytics/react'
 
 const Home = lazy(() => import('./pages/Home'))
 const Login = lazy(() => import('./pages/Login'))
@@ -35,6 +36,7 @@ function App() {
           <Route path='/ai-companion' element={<AiCompanion />} />
         </Routes>
       </Suspense>
+      <Analytics />
     </BrowserRouter>
   )
 }
