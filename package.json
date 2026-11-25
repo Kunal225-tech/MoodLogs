@@ -1,5 +1,14 @@
 {
-  "dependencies": {
-    "react-hot-toast": "^2.6.0"
+  "name": "moodlogs-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MoodLogs - Mindful AI Space & Clinical Mood Tracker",
+  "scripts": {
+    "start": "node backend/app.js",
+    "start:backend": "node backend/app.js",
+    "start:frontend": "npm run dev --prefix frontend/mood-tracker-frontend",
+    "build": "npm run build --prefix frontend/mood-tracker-frontend",
+    "build:frontend": "npm run build --prefix frontend/mood-tracker-frontend",
+    "install:all": "npm install --prefix backend && npm install --prefix frontend/mood-tracker-frontend"
   }
 }

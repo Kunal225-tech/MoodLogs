@@ -18,6 +18,18 @@ app.use(express.json());
 
 connectDB();
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    service: 'MoodLogs Backend API',
+    uptime: process.uptime()
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'healthy', uptime: process.uptime() });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/mood', moodRoutes);
 app.use('/api/gratitude', gratitudeRoutes);
