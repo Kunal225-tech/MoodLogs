@@ -46,7 +46,8 @@ function Register() {
       import('react-hot-toast').then(module => module.toast.success("Registered successfully! Please sign in."));
       navigate('/login')
     } catch (err) {
-      import('react-hot-toast').then(module => module.toast.error("Registration failed. Please try again."));
+      const msg = err.response?.data?.message || err.message || "Registration failed. Please try again.";
+      import('react-hot-toast').then(module => module.toast.error(msg));
     } finally {
       setIsLoading(false);
     }

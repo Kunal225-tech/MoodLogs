@@ -51,7 +51,8 @@ function Login() {
       import('react-hot-toast').then(module => module.toast.success("Welcome back!"));
       navigate('/dashboard')
     } catch (err) {
-      import('react-hot-toast').then(module => module.toast.error("Invalid credentials. Please try again."));
+      const msg = err.response?.data?.message || err.message || "Invalid credentials. Please try again.";
+      import('react-hot-toast').then(module => module.toast.error(msg));
     } finally {
       setIsLoading(false);
     }
